@@ -61,7 +61,7 @@ export default function App() {
     }
 
     if (input.includes("รัก") || input.includes("คิดถึง")) {
-      setResult("คำตอบดีมากกก 💖");
+      setResult(`${questions[index].a}`);
     } else {
       setResult(`${questions[index].a}`);
     }
@@ -119,7 +119,7 @@ export default function App() {
         {showVideoButton && (
           <div>
             <p style={{ margin: "10px 0" }}>
-              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมาด้วยนะ 💌
+              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมา 💌
             </p>
 
             <button style={styles.button} onClick={openYoutube}>
