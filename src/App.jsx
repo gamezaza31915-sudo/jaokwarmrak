@@ -94,7 +94,7 @@ export default function App() {
     setIndex((prev) => prev + 1);
   };
   const openYoutube = () => {
-  window.open("https://youtu.be/MFtfIpt7DfY?si=cipiC_35YceGBq1j", "_blank");
+  window.open("https://youtu.be/rxzIiByPwZo?si=9r-GPhLZG5dLb1oY", "_blank");
 };
 
   return (
@@ -119,7 +119,7 @@ export default function App() {
         {showVideoButton && (
           <div>
             <p style={{ margin: "10px 0" }}>
-              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมานะ 💌
+              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันถ้าโอเค คอลมานะ 💌
             </p>
 
             <button style={styles.button} onClick={openYoutube}>
