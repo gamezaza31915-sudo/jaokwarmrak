@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-const openYoutube = () => {
-  window.open("https://youtu.be/MFtfIpt7DfY?si=cipiC_35YceGBq1j", "_blank");
-};
 
 const sendToSheet = async (allAnswers) => {
   try {
@@ -53,6 +50,8 @@ export default function App() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [showVideoButton, setShowVideoButton] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
 
 
   const checkAnswer = () => {
@@ -81,11 +80,11 @@ export default function App() {
     setAnswers(newAnswers);
 
     if (index === questions.length - 1) {
-      sendToSheet(newAnswers);
+      if (isFinished) return;
 
-      setTimeout(() => {
-        openYoutube();
-      }, 1000); // หน่วง 1 วิ ให้ฟีลนิดนึง
+      setIsFinished(true);
+      sendToSheet(newAnswers);
+      setShowVideoButton(true);
 
       return;
     }
@@ -117,14 +116,30 @@ export default function App() {
         </button>
 
         {result && <p style={styles.result}>{result}</p>}
+        {showVideoButton && (
+          <div>
+            <p style={{ margin: "10px 0" }}>
+              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมาด้วยนะ 💌
+            </p>
 
-        <button style={styles.nextButton} onClick={nextCard}>
-          {index === questions.length - 1 ? "ส่งคำตอบ 💌" : "ถัดไป"}
-        </button>
-      </div>
-    </div>
-  );
-}
+            <button style={styles.button} onClick={openYoutube}>
+              กดดูตรงนี้ 💖
+            </button>
+          </div>
+        )}
+
+        {!isFinished && (
+          <button
+            style={styles.nextButton}
+            onClick={nextCard}
+          >
+            {index === questions.length - 1 ? "ถัดไป" : "ถัดไป"}
+          </button>
+        )}
+              </div>
+            </div>
+          );
+        }
 
 const styles = {
   container: {
