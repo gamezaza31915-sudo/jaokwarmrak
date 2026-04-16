@@ -119,7 +119,7 @@ export default function App() {
         {showVideoButton && (
           <div>
             <p style={{ margin: "10px 0" }}>
-              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมา 💌
+              เค้ามีอะไรอยากให้เธอดูต่อ...จริงๆอยากดูด้วยกันคอลมานะ 💌
             </p>
 
             <button style={styles.button} onClick={openYoutube}>
